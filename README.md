@@ -29,12 +29,6 @@ Grab this quickstart codes and make it working for you!
     git pull -s recursive -X theirs upstream master
     git push
 
-That's it, you can now checkout your tomcat at:
-
-    http://grailstest-$yournamespace.rhcloud.com
-
-The default managing account is tomcat/openshift
-
 You can checkout the grails app at:
 
     http://grailstest-$yournamespace.rhcloud.com
