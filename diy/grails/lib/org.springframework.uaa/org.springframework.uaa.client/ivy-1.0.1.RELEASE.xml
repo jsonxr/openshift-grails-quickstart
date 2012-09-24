@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
+	<info organisation="org.springframework.uaa"
+		module="org.springframework.uaa.client"
+		revision="1.0.1.RELEASE"
+		status="release"
+		publication="20120222141709"
+	>
+		<license name="Apache Software License, version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt" />
+		<description homepage="">
+		Client library. Excludes server analysis features.
+		</description>
+		<m:dependency.management__org.springframework.roo.wrapping__org.springframework.roo.wrapping.protobuf-java-lite__version>2.3.0.0001</m:dependency.management__org.springframework.roo.wrapping__org.springframework.roo.wrapping.protobuf-java-lite__version>
+		<m:dependency.management__org.osgi__org.osgi.core__version>4.2.0</m:dependency.management__org.osgi__org.osgi.core__version>
+		<m:properties__uaa.version>1.0.1.RELEASE</m:properties__uaa.version>
+		<m:dependency.management__org.osgi__org.osgi.compendium__version>4.2.0</m:dependency.management__org.osgi__org.osgi.compendium__version>
+		<m:maven.plugins>org.apache.maven.plugins__maven-gpg-plugin__1.1|org.apache.maven.plugins__maven-help-plugin__2.1.1|org.apache.maven.plugins__maven-clean-plugin__2.4.1|org.apache.maven.plugins__maven-resources-plugin__2.4.3|org.apache.maven.plugins__maven-surefire-plugin__2.7.1|org.apache.maven.plugins__maven-compiler-plugin__2.3.2|org.apache.maven.plugins__maven-source-plugin__2.1.2|org.apache.maven.plugins__maven-enforcer-plugin__1.0|org.apache.maven.plugins__maven-assembly-plugin__2.2-beta-3|org.apache.maven.plugins__maven-install-plugin__2.3.1|org.apache.maven.plugins__maven-deploy-plugin__2.5|org.apache.maven.plugins__maven-eclipse-plugin__2.8|org.apache.maven.plugins__maven-idea-plugin__2.2|org.apache.maven.plugins__maven-site-plugin__3.0-beta-3|org.apache.maven.plugins__maven-gpg-plugin__1.1|org.apache.maven.plugins__maven-help-plugin__2.1.1|org.apache.maven.plugins__maven-clean-plugin__2.4.1|org.apache.maven.plugins__maven-resources-plugin__2.4.3|org.apache.maven.plugins__maven-surefire-plugin__2.7.1|org.apache.maven.plugins__maven-compiler-plugin__2.3.2|org.apache.maven.plugins__maven-source-plugin__2.1.2|org.apache.maven.plugins__maven-enforcer-plugin__1.0|org.apache.maven.plugins__maven-assembly-plugin__2.2-beta-3|org.apache.maven.plugins__maven-install-plugin__2.3.1|org.apache.maven.plugins__maven-deploy-plugin__2.5|org.apache.maven.plugins__maven-eclipse-plugin__2.8|org.apache.maven.plugins__maven-idea-plugin__2.2|org.apache.maven.plugins__maven-site-plugin__3.0-beta-3|org.codehaus.mojo__exec-maven-plugin__1.1.1|org.apache.felix__maven-bundle-plugin__2.1.0|org.apache.maven.plugins__maven-dependency-plugin__2.1|null__maven-antrun-plugin__1.3|org.apache.maven.plugins__maven-gpg-plugin__1.1|org.apache.maven.plugins__maven-help-plugin__2.1.1|org.apache.maven.plugins__maven-clean-plugin__2.4.1|org.apache.maven.plugins__maven-resources-plugin__2.4.3|org.apache.maven.plugins__maven-surefire-plugin__2.7.1|org.apache.maven.plugins__maven-compiler-plugin__2.3.2|org.apache.maven.plugins__maven-source-plugin__2.1.2|org.apache.maven.plugins__maven-enforcer-plugin__1.0|org.apache.maven.plugins__maven-assembly-plugin__2.2-beta-3|org.apache.maven.plugins__maven-install-plugin__2.3.1|org.apache.maven.plugins__maven-deploy-plugin__2.5|org.apache.maven.plugins__maven-eclipse-plugin__2.8|org.apache.maven.plugins__maven-idea-plugin__2.2|org.apache.maven.plugins__maven-site-plugin__3.0-beta-3|org.apache.maven.plugins__maven-gpg-plugin__1.1|org.apache.maven.plugins__maven-help-plugin__2.1.1|org.apache.maven.plugins__maven-clean-plugin__2.4.1|org.apache.maven.plugins__maven-resources-plugin__2.4.3|org.apache.maven.plugins__maven-surefire-plugin__2.7.1|org.apache.maven.plugins__maven-compiler-plugin__2.3.2|org.apache.maven.plugins__maven-source-plugin__2.1.2|org.apache.maven.plugins__maven-enforcer-plugin__1.0|org.apache.maven.plugins__maven-assembly-plugin__2.2-beta-3|org.apache.maven.plugins__maven-install-plugin__2.3.1|org.apache.maven.plugins__maven-deploy-plugin__2.5|org.apache.maven.plugins__maven-eclipse-plugin__2.8|org.apache.maven.plugins__maven-idea-plugin__2.2|org.apache.maven.plugins__maven-site-plugin__3.0-beta-3|org.codehaus.mojo__exec-maven-plugin__1.1.1|org.apache.felix__maven-bundle-plugin__2.1.0|org.apache.maven.plugins__maven-dependency-plugin__2.1|null__maven-antrun-plugin__1.3</m:maven.plugins>
+	</info>
+	<configurations>
+		<conf name="default" visibility="public" description="runtime dependencies and master artifact can be used with this conf" extends="runtime,master"/>
+		<conf name="master" visibility="public" description="contains only the artifact published by this module itself, with no transitive dependencies"/>
+		<conf name="compile" visibility="public" description="this is the default scope, used if none is specified. Compile dependencies are available in all classpaths."/>
+		<conf name="provided" visibility="public" description="this is much like compile, but indicates you expect the JDK or a container to provide it. It is only available on the compilation classpath, and is not transitive."/>
+		<conf name="runtime" visibility="public" description="this scope indicates that the dependency is not required for compilation, but is for execution. It is in the runtime and test classpaths, but not the compile classpath." extends="compile"/>
+		<conf name="test" visibility="private" description="this scope indicates that the dependency is not required for normal use of the application, and is only available for the test compilation and execution phases." extends="runtime"/>
+		<conf name="system" visibility="public" description="this scope is similar to provided except that you have to provide the JAR which contains it explicitly. The artifact is always available and is not looked up in a repository."/>
+		<conf name="sources" visibility="public" description="this configuration contains the source artifact of this module, if any."/>
+		<conf name="javadoc" visibility="public" description="this configuration contains the javadoc artifact of this module, if any."/>
+		<conf name="optional" visibility="public" description="contains all optional dependencies"/>
+	</configurations>
+	<publications>
+		<artifact name="org.springframework.uaa.client" type="bundle" ext="jar" conf="master"/>
+	</publications>
+	<dependencies>
+		<dependency org="org.springframework.roo.wrapping" name="org.springframework.roo.wrapping.protobuf-java-lite" rev="2.3.0.0001" force="true" conf="compile->compile(*),master(*);runtime->runtime(*)"/>
+		<dependency org="org.springframework.roo.wrapping" name="org.springframework.roo.wrapping.json-simple" rev="1.1.0.0001" force="true" conf="compile->compile(*),master(*);runtime->runtime(*)"/>
+		<dependency org="org.springframework.roo.wrapping" name="org.springframework.roo.wrapping.bcpg-jdk15" rev="1.45.0.0001" force="true" conf="compile->compile(*),master(*);runtime->runtime(*)"/>
+		<dependency org="org.springframework.roo.wrapping" name="org.springframework.roo.wrapping.bcprov-jdk15" rev="1.45.0.0001" force="true" conf="compile->compile(*),master(*);runtime->runtime(*)"/>
+		<dependency org="junit" name="junit" rev="4.8.2" force="true" conf="test->runtime(*),master(*)"/>
+		<override org="org.springframework.roo.wrapping" module="org.springframework.roo.wrapping.protobuf-java-lite" matcher="exact" rev="2.3.0.0001"/>
+		<override org="org.osgi" module="org.osgi.core" matcher="exact" rev="4.2.0"/>
+		<override org="org.osgi" module="org.osgi.compendium" matcher="exact" rev="4.2.0"/>
+	</dependencies>
+</ivy-module>

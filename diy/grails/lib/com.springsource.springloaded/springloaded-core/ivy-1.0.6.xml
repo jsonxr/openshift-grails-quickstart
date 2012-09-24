@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0">
+	<info organisation="com.springsource.springloaded"
+		module="springloaded-core"
+		revision="1.0.6"
+		status="release"
+		publication="20120514174327"
+		default="true"
+	/>
+	<configurations>
+		<conf name="default" visibility="public"/>
+	</configurations>
+	<publications>
+		<artifact name="springloaded-core" type="jar" ext="jar" conf="default"/>
+	</publications>
+</ivy-module>

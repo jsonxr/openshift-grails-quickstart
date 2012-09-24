@@ -1,0 +1,28 @@
+#!/bin/bash
+# This deploy hook gets executed after dependencies are resolved and the
+# build hook has been run but before the application has been started back
+# up again.  This script gets executed directly, so it could be python, php,
+# ruby, etc.
+set -x
+if [ ! -d $OPENSHIFT_RUNTIME_DIR/tomcat ]
+then
+    # Copy Tomcat
+    cp -rf $OPENSHIFT_REPO_DIR/diy/tomcat $OPENSHIFT_RUNTIME_DIR
+    rm -rf $OPENSHIFT_RUNTIME_DIR/tomcat/logs
+    ln -s $OPENSHIFT_LOG_DIR $OPENSHIFT_RUNTIME_DIR/tomcat/logs
+    
+    # Copy Grails
+    cp -rf $OPENSHIFT_REPO_DIR/diy/grails $OPENSHIFT_RUNTIME_DIR
+fi
+
+export JAVA_HOME=/etc/alternatives/java_sdk_1.7.0
+export JAVA_OPTS="$JAVA_OPTS -Divy.default.ivy.user.dir=$OPENSHIFT_DATA_DIR -Duser.home=$OPENSHIFT_DATA_DIR"
+export GRAILS_HOME=$OPENSHIFT_RUNTIME_DIR/grails
+export PATH=$GRAILS_HOME/bin:$PATH
+export HOME=$OPENSHIFT_DATA_DIR
+
+#sed -ig 's/OPENSHIFT_DATA_DIR/'$OPENSHIFT_APP_DNS'/' conf/server.xml
+cd $OPENSHIFT_REPO_DIR/app
+grails prod war target/ROOT.war
+
+cp target/ROOT.war $OPENSHIFT_RUNTIME_DIR/tomcat/webapps/ROOT.war
