@@ -18,16 +18,20 @@ Create a DIY application
 
 Get Tomcat and Grails running
 ----------------------------
-Grab this quickstart codes and make it working for you!
+Grab this quickstart code and pull it into your repository.
 
     cd grailstest
     git remote add upstream -m master git://github.com/jasonxrowland/openshift-grails-quickstart.git
     git pull -s recursive -X theirs upstream master
     git push
 
-You can checkout the grails app at:
+You can view the grails app at:
 
     http://grailstest-$yournamespace.rhcloud.com
+
+It may take a while for tomcat to extract the war file.  If you want to watch the progress of the server, you can log into the server and tail the log file:
+
+    tail -f $OPENSHIFT_LOG_DIR/catalina.out
 
 Grails
 ----------------------------
